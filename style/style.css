@@ -530,7 +530,8 @@ main .testimonials .flex_btn i {
 }
 
 /* عکس‌های پروفایل دور کارت */
-main .testimonials .random_img {
+main .testimonials .random_img,
+main .testimonials .random_img2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -539,7 +540,8 @@ main .testimonials .random_img {
   z-index: 1;
   pointer-events: none;
 }
-main .testimonials .random_img .img_prof {
+main .testimonials .random_img .img_prof,
+main .testimonials .random_img2 .img_prof {
   position: absolute;
   border-radius: 50%;
   object-fit: cover;
@@ -565,19 +567,19 @@ main .testimonials .random_img .img_prof:nth-child(3) {
   top: 80%;
   left: -22%;
 }
-main .testimonials .random_img .img_prof:nth-child(4) {
+main .testimonials .random_img2 .img_prof:nth-child(3) {
   width: 60px;
   height: 60px;
   top: 20%;
   right: -20%;
 }
-main .testimonials .random_img .img_prof:nth-child(5) {
+main .testimonials .random_img2 .img_prof:nth-child(1) {
   width: 80px;
   height: 80px;
   top: 52%;
   right: -32%;
 }
-main .testimonials .random_img .img_prof:nth-child(6) {
+main .testimonials .random_img2 .img_prof:nth-child(2) {
   width: 60px;
   height: 60px;
   top: 80%;
@@ -601,17 +603,18 @@ main .testimonials .box_pepple.animate {
   animation-delay: 0.25s;
 }
 /* عکس‌های راست: از چپ می‌آیند */
-main .testimonials .random_img .img_prof {
-  opacity: 0;
+main .testimonials .random_img .img_prof, 
+main .testimonials .random_img2 .img_prof {
+opacity: 0;
 }
 main .testimonials .random_img .img_prof:nth-child(1),
 main .testimonials .random_img .img_prof:nth-child(2),
 main .testimonials .random_img .img_prof:nth-child(3) {
   transform: translateX(-60px);
 }
-main .testimonials .random_img .img_prof:nth-child(4),
-main .testimonials .random_img .img_prof:nth-child(5),
-main .testimonials .random_img .img_prof:nth-child(6) {
+main .testimonials .random_img2 .img_prof:nth-child(1),
+main .testimonials .random_img2 .img_prof:nth-child(2),
+main .testimonials .random_img2 .img_prof:nth-child(3) {
   transform: translateX(60px);
 }
 
@@ -627,15 +630,15 @@ main .testimonials .random_img .img_prof:nth-child(3).animate {
   animation: slideInFromLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.7s;
 }
-main .testimonials .random_img .img_prof:nth-child(4).animate {
+main .testimonials .random_img2 .img_prof:nth-child(1).animate {
   animation: slideInFromRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.4s;
 }
-main .testimonials .random_img .img_prof:nth-child(5).animate {
+main .testimonials .random_img2 .img_prof:nth-child(2).animate {
   animation: slideInFromRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.55s;
 }
-main .testimonials .random_img .img_prof:nth-child(6).animate {
+main .testimonials .random_img2 .img_prof:nth-child(3).animate {
   animation: slideInFromRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.7s;
 }

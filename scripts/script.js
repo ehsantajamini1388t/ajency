@@ -43,7 +43,7 @@ if (servicesSection) {
 const testimonialSection = document.querySelector(".testimonials");
 const testTitle = document.querySelector(".testimonials .test_discription");
 const testCard = document.querySelector(".testimonials .box_pepple");
-const testImgs = document.querySelectorAll(".testimonials .random_img .img_prof");
+const testImgs = document.querySelectorAll(".testimonials .random_img .img_prof, .testimonials .random_img2 .img_prof");
 
 if (testimonialSection) {
   const testObserver = new IntersectionObserver(
