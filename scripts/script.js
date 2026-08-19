@@ -83,3 +83,30 @@ if (contactSection) {
   );
   contactObserver.observe(contactSection);
 }
+
+let meno_h = document.getElementById("meno_h");
+let op_and_menu = document.getElementById("op_and_menu");
+let btn_close = document.getElementById("close");
+
+
+if (meno_h && op_and_menu && btn_close) {
+
+    meno_h.addEventListener("click", () => {
+
+        op_and_menu.classList.add("show_menu");
+
+        document.body.classList.add("no_scoroll");
+
+        document.documentElement.classList.add("no_scoroll");
+    });
+
+
+    btn_close.addEventListener("click", () => {
+
+        op_and_menu.classList.remove("show_menu");
+
+        document.body.classList.remove("no_scoroll");
+
+        document.documentElement.classList.remove("no_scoroll");
+    });
+}
