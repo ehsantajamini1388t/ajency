@@ -13,7 +13,7 @@ if (aboutSection && aboutImg && aboutDesc) {
         }
       });
     },
-    { threshold: 0.5 },
+    { threshold: 0.25 },
   );
 
   aboutObserver.observe(aboutSection);
@@ -34,7 +34,7 @@ if (servicesSection) {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.25 }
   );
 
   servicesObserver.observe(servicesSection);
@@ -57,7 +57,7 @@ if (testimonialSection) {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.25 }
   );
 
   testObserver.observe(testimonialSection);
@@ -79,7 +79,7 @@ if (contactSection) {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.25 }
   );
   contactObserver.observe(contactSection);
 }
@@ -101,12 +101,27 @@ if (meno_h && op_and_menu && btn_close) {
     });
 
 
+    // btn_close.addEventListener("click", () => {
+
+    //     op_and_menu.classList.remove("show_menu");
+
+    //     document.body.classList.remove("no_scoroll");
+
+    //     document.documentElement.classList.remove("no_scoroll");
+    // });
     btn_close.addEventListener("click", () => {
+  const menoBox = document.querySelector(".open_box_meno");
+  const ropBox = document.querySelector(".rop");
 
-        op_and_menu.classList.remove("show_menu");
+  menoBox.classList.add("closing");
+  ropBox.classList.add("closing");
 
-        document.body.classList.remove("no_scoroll");
-
-        document.documentElement.classList.remove("no_scoroll");
-    });
+  setTimeout(() => {
+    op_and_menu.classList.remove("show_menu");
+    menoBox.classList.remove("closing");
+    ropBox.classList.remove("closing");
+    document.body.classList.remove("no_scoroll");
+    document.documentElement.classList.remove("no_scoroll");
+  }, 400);
+});
 }
