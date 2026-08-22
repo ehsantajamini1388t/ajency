@@ -34,7 +34,7 @@ if (servicesSection) {
         }
       });
     },
-    { threshold: 0.25 }
+    { threshold: 0.25 },
   );
 
   servicesObserver.observe(servicesSection);
@@ -43,7 +43,9 @@ if (servicesSection) {
 const testimonialSection = document.querySelector(".testimonials");
 const testTitle = document.querySelector(".testimonials .test_discription");
 const testCard = document.querySelector(".testimonials .box_pepple");
-const testImgs = document.querySelectorAll(".testimonials .random_img .img_prof, .testimonials .random_img2 .img_prof");
+const testImgs = document.querySelectorAll(
+  ".testimonials .random_img .img_prof, .testimonials .random_img2 .img_prof",
+);
 
 if (testimonialSection) {
   const testObserver = new IntersectionObserver(
@@ -57,7 +59,7 @@ if (testimonialSection) {
         }
       });
     },
-    { threshold: 0.25 }
+    { threshold: 0.25 },
   );
 
   testObserver.observe(testimonialSection);
@@ -72,14 +74,14 @@ if (contactSection) {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          contactSection.classList.add("animate"); 
+          contactSection.classList.add("animate");
           if (contactDesc) contactDesc.classList.add("animate");
           if (contactForm) contactForm.classList.add("animate");
           contactObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.25 }
+    { threshold: 0.25 },
   );
   contactObserver.observe(contactSection);
 }
@@ -88,40 +90,54 @@ let meno_h = document.getElementById("meno_h");
 let op_and_menu = document.getElementById("op_and_menu");
 let btn_close = document.getElementById("close");
 
-
 if (meno_h && op_and_menu && btn_close) {
+  meno_h.addEventListener("click", () => {
+    op_and_menu.classList.add("show_menu");
 
-    meno_h.addEventListener("click", () => {
+    document.body.classList.add("no_scoroll");
 
-        op_and_menu.classList.add("show_menu");
+    document.documentElement.classList.add("no_scoroll");
+  });
 
-        document.body.classList.add("no_scoroll");
+  btn_close.addEventListener("click", () => {
+    const menoBox = document.querySelector(".open_box_meno");
+    const ropBox = document.querySelector(".rop");
 
-        document.documentElement.classList.add("no_scoroll");
-    });
+    menoBox.classList.add("closing");
+    ropBox.classList.add("closing");
 
-
-    // btn_close.addEventListener("click", () => {
-
-    //     op_and_menu.classList.remove("show_menu");
-
-    //     document.body.classList.remove("no_scoroll");
-
-    //     document.documentElement.classList.remove("no_scoroll");
-    // });
-    btn_close.addEventListener("click", () => {
-  const menoBox = document.querySelector(".open_box_meno");
-  const ropBox = document.querySelector(".rop");
-
-  menoBox.classList.add("closing");
-  ropBox.classList.add("closing");
-
-  setTimeout(() => {
-    op_and_menu.classList.remove("show_menu");
-    menoBox.classList.remove("closing");
-    ropBox.classList.remove("closing");
-    document.body.classList.remove("no_scoroll");
-    document.documentElement.classList.remove("no_scoroll");
-  }, 400);
-});
+    setTimeout(() => {
+      op_and_menu.classList.remove("show_menu");
+      menoBox.classList.remove("closing");
+      ropBox.classList.remove("closing");
+      document.body.classList.remove("no_scoroll");
+      document.documentElement.classList.remove("no_scoroll");
+    }, 400);
+  });
 }
+const tipEl = document.createElement("div");
+tipEl.className = "js-tooltip";
+document.body.appendChild(tipEl);
+
+document.querySelectorAll(".has-tip").forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    tipEl.textContent = el.getAttribute("data-tip");
+    tipEl.classList.add("show");
+  });
+
+  el.addEventListener("mousemove", (e) => {
+    const rect = el.getBoundingClientRect();
+    tipEl.style.left = rect.left + rect.width / 2 - tipEl.offsetWidth / 2 + "px";
+    tipEl.style.top = rect.top - tipEl.offsetHeight + 80 + "px";
+  });
+
+  el.addEventListener("mouseleave", () => {
+    tipEl.classList.remove("show");
+  });
+   
+   
+});
+window.addEventListener("scroll", function () {
+    tipEl.classList.remove("show");
+
+});
